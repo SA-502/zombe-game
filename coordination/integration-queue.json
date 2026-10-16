@@ -131,11 +131,26 @@
     },
     {
       "id": "visual-remaster-v2",
-      "status": "validating",
-      "summary": "أسلحة ونسخ مطورة ورسوم شراء وعمارة علوية؛ جارٍ فحص الجاهزية",
+      "status": "integrated",
+      "summary": "أسلحة نمر 47 ورعد 12 والنسخ المطورة ورسوم الشراء وعمارة الطابق العلوي والدرج مدمجة ومفحوصة بالكامل محلياً (check.mjs PASS)",
+      "readyConfirmedByArtist": true,
+      "validation": [
+        "check.mjs: pass (100%)",
+        "check-delivery.mjs: pass (100%)",
+        "Architecture v2.1 stairwell void open, no head conflicts, stairs flight slope walkable",
+        "Pistol, rifle, shotgun, Pack-a-Punch models and materials loaded into WebGL engine",
+        "Wallbuy chalk outlines and dynamic price plates verified"
+      ],
+      "knownIntegrationWork": []
+    },
+    {
+      "id": "visual-remaster-v3",
+      "status": "ready_for_integration",
+      "summary": "أجهزة البيركات الـ4، الصندوق العشوائي وشعاعه، محطة التطوير، مصيدة الكهرباء، التقويات العائمة، والواجهة (جاهزة في dist/assets/remaster/)",
       "readyConfirmedByArtist": true,
       "validation": [],
       "knownIntegrationWork": []
     }
   ]
 }
+
