@@ -1,0 +1,12 @@
+export const isLocalDelivery=url=>['127.0.0.1','localhost','[::1]'].includes(url.hostname)&&url.searchParams.get('delivery')==='1';
+export const deliveryMode=()=>isLocalDelivery(new URL(location.href));
+export const deliveryPath=(name,fallback)=>deliveryMode()?'/__delivery/'+name:fallback;
+export function prepareDeliveryGame(game){if(!deliveryMode())return;for(const id of ['rifle','shotgun'])game.inventory[id]=game.newGun(id);game.points=10000;}
+export async function watchDelivery(game){
+ if(!deliveryMode())return;
+ const bar=document.createElement('aside');bar.id='deliveryPreview';bar.style.cssText='position:fixed;bottom:0;left:0;right:0;z-index:100;background:#17231f;color:#eee;padding:7px 12px;font:12px Tahoma;display:flex;gap:15px;align-items:center;direction:rtl';
+ const label=document.createElement('span');label.textContent='معاينة محلية من تسليم Blender';const toggle=document.createElement('input');toggle.type='checkbox';toggle.checked=true;const text=document.createElement('label');text.textContent='تحديث تلقائي بعد الحفظ (يعيد الجولة) ';text.append(toggle);const link=document.createElement('a');link.href='/__review/index.html';link.textContent='فحص الأصول';link.style.color='#e7a85c';const upgraded=document.createElement('button');upgraded.textContent='اختبار النسخ المطورة';upgraded.style.cssText='background:#314a3d;color:#fff1d5;border:1px solid #91a18b;padding:5px 10px;font:12px Tahoma;cursor:pointer';let level=0;upgraded.onclick=()=>{if(!game)return;level=1-level;for(const [id,g]of Object.entries(game.inventory)){const base=game.newGun(id);g.level=level;g.ammo=Math.round(base.ammo*(level?1.5:1));g.reserve=Math.round(base.reserve*(level?1.5:1));}upgraded.textContent=level?'العودة للأسلحة العادية':'اختبار النسخ المطورة';};bar.append(label,text,link,upgraded);document.body.append(bar);
+ let stamp=null,busy=false;
+ const poll=async()=>{if(busy)return;busy=true;try{const r=await fetch('/__delivery/status',{cache:'no-store'});if(!r.ok)throw Error();const s=await r.json();if(!s.ready){label.textContent=s.errors.join(' • ')||'بانتظار اكتمال حفظ التسليم…';return;}label.textContent='تسليم Blender متصل • المعاينة محلية';if(stamp!==null&&stamp!==s.stamp&&toggle.checked){location.reload();return;}if(stamp===null||toggle.checked)stamp=s.stamp;}catch{label.textContent='اتصال المعاينة متوقف؛ شغّل خادم المشروع المحلي';}finally{busy=false;}};
+ await poll();setInterval(poll,2500);
+}

@@ -1,0 +1,6 @@
+{
+  "name": "ashfall-survival",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node check.mjs", "start": "node server.mjs" }
+}

@@ -1,0 +1,94 @@
+{
+  "mysteryDuplicate": {
+    "before": {
+      "ammo": 45,
+      "reserve": 315,
+      "level": 1
+    },
+    "after": {
+      "ammo": 30,
+      "reserve": 210,
+      "level": 0
+    },
+    "cost": 700
+  },
+  "fullAmmoCharge": {
+    "purchased": true,
+    "before": {
+      "ammo": 12,
+      "reserve": 84,
+      "level": 0
+    },
+    "after": {
+      "ammo": 12,
+      "reserve": 84,
+      "level": 0
+    },
+    "charged": 350
+  },
+  "automaticFire": [
+    {
+      "fps": 15,
+      "shotsIn10Seconds": 75
+    },
+    {
+      "fps": 30,
+      "shotsIn10Seconds": 75
+    },
+    {
+      "fps": 60,
+      "shotsIn10Seconds": 86
+    },
+    {
+      "fps": 120,
+      "shotsIn10Seconds": 93
+    }
+  ],
+  "earlySemiAutoClick": {
+    "request": true,
+    "shot": false,
+    "requestAfterCooldown": false,
+    "ammo": 12
+  },
+  "playerBodyPass": {
+    "enemyZ": 12,
+    "playerEndZ": 14.371691723307055,
+    "minimumDistance": 0.026161553591872888
+  },
+  "balance": {
+    "playerWalk": 3.6,
+    "playerSprint": 6,
+    "maximumEnemySpeed": 3.08,
+    "round1EnemyHealth": 98,
+    "round30EnemyHealth": 620,
+    "round100EnemyHealth": 1880,
+    "round1AttacksToKillPlayer": 5,
+    "activeEnemyCap": 22,
+    "roundEnemyCap": 48,
+    "ammoStationAllWeaponsPrice": 350,
+    "rifleWallRefill": 450,
+    "shotgunWallRefill": 700,
+    "firstPistolBodyShots": 3,
+    "firstRifleBodyShots": 4
+  },
+  "weaponDamage": {
+    "pistol": {
+      "body": 34,
+      "head": 74.80000000000001,
+      "upgradedBody": 71.4,
+      "upgradedHead": 157.08
+    },
+    "rifle": {
+      "body": 30,
+      "head": 66,
+      "upgradedBody": 63,
+      "upgradedHead": 138.60000000000002
+    },
+    "shotgun": {
+      "body": 23,
+      "head": 50.6,
+      "upgradedBody": 48.300000000000004,
+      "upgradedHead": 106.26000000000002
+    }
+  }
+}

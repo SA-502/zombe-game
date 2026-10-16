@@ -1,0 +1,64 @@
+{
+  "manifestVersion": "3.0.0",
+  "project": "ASHFALL",
+  "author": "blender_agent",
+  "updatedAt": "2026-10-17T01:19:30.000Z",
+  "overallStatus": "all_batches_ready",
+  "coordinateSystem": {
+    "engine": "Three.js / WebGL",
+    "forward": "-Z",
+    "up": "+Y",
+    "right": "+X",
+    "sourceBlender": "Blender Z-up converted via export: X=x, Y=z, Z=-y",
+    "units": "meters"
+  },
+  "batches": {
+    "visual-remaster-v1": {
+      "status": "ready",
+      "summary": "إعادة تشكيل تشريح الزومبي بالكامل مع 3 تنويعات، مكتبة حركات هيكلية كاملة، أيدي منظور الشخص الأول التكتيكية، ومسدس 1911 كامل الأجزاء ونقاط التثبيت.",
+      "files": [
+        "outputs/blender-delivery/ashfall-remaster-v1.blend",
+        "outputs/blender-delivery/zombie-templates-v1.json",
+        "outputs/blender-delivery/zombie-actions-v1.json",
+        "outputs/blender-delivery/player-hands-pistol-v1.json",
+        "outputs/blender-delivery/zombie-remaster-portrait.png",
+        "outputs/blender-delivery/zombie-variants-comparison.png",
+        "outputs/blender-delivery/player-hands-pistol-preview.png"
+      ]
+    },
+    "visual-remaster-v2": {
+      "status": "ready",
+      "summary": "حزمة الأسلحة الكاملة (نمر 47 وخرطوش رعد 12 مع نسختي التطوير Pack-A-Punch)، رسوم الشراء الجدارية الطبشورية مع مساحات الأسعار المتغيرة، وعمارة الطابق العلوي والسلّم ومسار الهروب التكتيكي وحواجز النوافذ الخشبية.",
+      "files": [
+        "outputs/blender-delivery/ashfall-remaster-v2.blend",
+        "outputs/blender-delivery/weapons-pack-v2.json",
+        "outputs/blender-delivery/wallbuys-and-props-v2.json",
+        "outputs/blender-delivery/upper-floor-architecture-v2.json",
+        "outputs/blender-delivery/weapons-showcase-v2.png",
+        "outputs/blender-delivery/wallbuys-showcase-v2.png",
+        "outputs/blender-delivery/upper-floor-showcase-v2.png"
+      ]
+    },
+    "visual-remaster-v3": {
+      "status": "ready",
+      "summary": "حزمة أنظمة اللعب والآلات الكاملة (أجهزة البيركات الأربعة، الصندوق العشوائي وشعاع الضوء، محطة التطوير Pack-A-Punch، مصيدة الصعق الكهربائي، وقاطع كهرباء الحي الرئيسي)، التقويات العائمة الخمسة، القنابل والدمية التشتيتية الموسيقية، الفوارغ، وأصول واجهة المستخدم SVG ومؤشرات التصويب.",
+      "files": [
+        "outputs/blender-delivery/ashfall-remaster-v3.blend",
+        "outputs/blender-delivery/gameplay-machines-v3.json",
+        "outputs/blender-delivery/powerups-and-tacticals-v3.json",
+        "outputs/blender-delivery/ui-icons-and-hud-v3.json",
+        "outputs/blender-delivery/gameplay-machines-showcase-v3.png",
+        "outputs/blender-delivery/powerups-and-tacticals-showcase-v3.png",
+        "outputs/blender-delivery/lighting-and-vfx-showcase-v3.png"
+      ]
+    }
+  },
+  "needsFromCodeAgent": [
+    "دمج أسلحة نمر 47 ورعد 12 والنسخ المطورة من weapons-pack-v2.json وتفعيل وميض الفوهات.",
+    "ربط أسطح رسوم الشراء الجدارية الطبشورية مع نصوص الأسعار الديناميكية من wallbuys-and-props-v2.json.",
+    "تحديث شبكة الملاحة (NavMesh) للطابق العلوي ومسار النزول التكتيكي من upper-floor-architecture-v2.json.",
+    "تفعيل آلات البيركات الأربعة وحالات الكهرباء والأسعار والصندوق السحري من gameplay-machines-v3.json.",
+    "إسقاط وتدوير التقويات العائمة الخمسة ومزامنة زمن اختفائها والتقاطها من powerups-and-tacticals-v3.json.",
+    "تطبيق أيقونات البيركات ومؤشرات الإصابة (Hitmarker) من ui-icons-and-hud-v3.json."
+  ]
+}

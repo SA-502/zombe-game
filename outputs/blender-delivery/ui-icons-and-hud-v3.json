@@ -1,0 +1,57 @@
+{
+  "version": "3.0.0",
+  "batch": "visual-remaster-v3",
+  "hud_theme": {
+    "font_family": "Cairo, sans-serif",
+    "primary_color": "#ffbe3b",
+    "danger_color": "#e81b23",
+    "health_gradient": [
+      "#e81b23",
+      "#ffbe3b",
+      "#00e676"
+    ],
+    "hud_placement": {
+      "round_counter": {
+        "anchor": "bottom-left",
+        "style": "blood_tally_marks_and_numeral"
+      },
+      "points_display": {
+        "anchor": "top-right",
+        "style": "gold_led_glow"
+      },
+      "perk_tray": {
+        "anchor": "bottom-left-offset",
+        "icon_size_px": 44,
+        "spacing_px": 8
+      },
+      "ammo_counter": {
+        "anchor": "bottom-right",
+        "style": "tactical_magazine_and_reserve"
+      }
+    }
+  },
+  "crosshairs": {
+    "standard_hipfire": {
+      "color": "rgba(255,255,255,0.85)",
+      "gap_px": 8,
+      "length_px": 12,
+      "expand_on_move": true
+    },
+    "hitmarker_body": {
+      "color": "#ffffff",
+      "shape": "diagonal_cross_x",
+      "fade_duration_sec": 0.18
+    },
+    "hitmarker_headshot": {
+      "color": "#e81b23",
+      "shape": "bold_cross_x",
+      "fade_duration_sec": 0.28
+    }
+  },
+  "perk_icons_svg": {
+    "vitality": "<svg viewBox='0 0 48 48'><circle cx='24' cy='24' r='22' fill='#750806'/><path d='M24 10 L34 16 L34 28 C34 35 24 40 24 40 C24 40 14 35 14 28 L14 16 Z' fill='#ffffff'/><path d='M21 22 H27 M24 19 V25' stroke='#750806' stroke-width='3'/></svg>",
+    "haste": "<svg viewBox='0 0 48 48'><circle cx='24' cy='24' r='22' fill='#066515'/><polygon points='26,8 14,24 23,24 20,40 34,22 25,22' fill='#ffffff'/></svg>",
+    "stamina": "<svg viewBox='0 0 48 48'><circle cx='24' cy='24' r='22' fill='#854005'/><path d='M16 14 C20 14 28 14 32 20 L30 26 L22 26 L18 34 H34' fill='none' stroke='#ffffff' stroke-width='4'/></svg>",
+    "revive": "<svg viewBox='0 0 48 48'><circle cx='24' cy='24' r='22' fill='#055585'/><path d='M24 14 C20 10 14 12 14 18 C14 26 24 34 24 34 C24 34 34 26 34 18 C34 12 28 10 24 14 Z' fill='#ffffff'/><rect x='22' y='18' width='4' height='10' fill='#055585'/><rect x='19' y='21' width='10' height='4' fill='#055585'/></svg>"
+  }
+}

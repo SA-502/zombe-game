@@ -1,0 +1,141 @@
+{
+  "updatedAt": "2026-10-16T21:58:55.441Z",
+  "owner": "code",
+  "batches": [
+    {
+      "id": "visual-remaster-v1",
+      "status": "published",
+      "summary": "نُشرت التنويعات والحركات واليدين والمسدس في06؛ تفاصيل القيود موثقة",
+      "sourceDirectory": "outputs/blender-delivery",
+      "discoveredBy": "code",
+      "readyConfirmedByArtist": true,
+      "files": [
+        {
+          "path": "outputs/blender-delivery/ashfall-remaster-v1.blend",
+          "bytes": 1660344,
+          "sha256": "0a21a7e362eee7cd3f1cb597629784e2405acaa1c5a33ca4248410e0704f1625",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/ashfall-remaster-v2.blend",
+          "bytes": 1723297,
+          "sha256": "077d0ba5f9f9f287c70509c39daa74c2f4286d049a6b8b33b8f77f5f6d8aa309",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/generate_batch_2.py",
+          "bytes": 32004,
+          "sha256": "8182d4caad0848454feca413505148cd68444643557374c902a777835154df54",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/INTEGRATION-GUIDE.md",
+          "bytes": 8928,
+          "sha256": "ed8be9853f9cec05f2884d367c34e947533c4daaa1fde8d14132c9ea985fb7ef",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/manifest.json",
+          "bytes": 4609,
+          "sha256": "ce6fb4c2ab173d1a0543d160281d7a4fa2ee79bfd0cda3ac3535cf8e814b77cb",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/player-hands-pistol-preview.png",
+          "bytes": 619154,
+          "sha256": "5edcc6445f8dfe81ccf39a8ae121d6dccba3630ab59de159dd587e7bf37ae1fc",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/player-hands-pistol-v1.json",
+          "bytes": 206016,
+          "sha256": "d27c1ff945db12052809e1a0043f8abd72ce11d21ae8e84aee47e9748eb63aa5",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/upper-floor-architecture-v2.json",
+          "bytes": 182411,
+          "sha256": "2d07e78120d089ea96330053b1c3ccd4e9093ca5a070d48187fcc78619e4ce28",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/upper-floor-showcase-v2.png",
+          "bytes": 990482,
+          "sha256": "d95e6f3238e52c29ccc7292d70b89e8e752952191a29d4a04312ce8762d005ad",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/wallbuys-and-props-v2.json",
+          "bytes": 95519,
+          "sha256": "a21c91784b02f4980752d1c62aaca4acf7c440dce234d6d7f85cfc551f16f22c",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/wallbuys-showcase-v2.png",
+          "bytes": 873095,
+          "sha256": "0ab5f233842d3f9114c4d85cbffa4f6423608125f27ee9a4a4f48736e7df7a50",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/weapons-pack-v2.json",
+          "bytes": 320764,
+          "sha256": "b54fdea857648e1f225aaf77abf1f1ac1029ca84c70b806fd986fa43b2159284",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/weapons-showcase-v2.png",
+          "bytes": 857367,
+          "sha256": "0ec8e6a27af577a65939492f2a321f23544cfc3865d8e164edb63f5e438f9af3",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/zombie-actions-v1.json",
+          "bytes": 226284,
+          "sha256": "84ba2780ed515b4e9aa410f62afec617c87f99c6cb3047905b051f4da5139d0e",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/zombie-remaster-portrait.png",
+          "bytes": 858985,
+          "sha256": "9e4a725bfbcbbfe38b509d49d1c1870feaf8b2471385344ae0398e0e6a0ebc03",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/zombie-templates-v1.json",
+          "bytes": 2918691,
+          "sha256": "903d355391ac3daaa559183eaec2e338230902999fc269ac111b7de96c3105f5",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        },
+        {
+          "path": "outputs/blender-delivery/zombie-variants-comparison.png",
+          "bytes": 812114,
+          "sha256": "df70d5e7d816c4c78862ce24c0972dea10fb8f0a82f01a32b4a8747aa4ad778e",
+          "observedAt": "2026-10-16T21:56:14.104Z"
+        }
+      ],
+      "validation": [
+        "check.mjs: pass, including check-remaster.mjs",
+        "Exact delivered JSON copies; complete Blender material palette; rig/meter bounds; ADS and strikeAt alignment",
+        "Browser: all three variants, imported walk/run, first-person pistol/hands, ADS shot 12 to 11, crowd damage/game over, no error logs"
+      ],
+      "knownIntegrationWork": [
+        "مقاطع اليدين والتلقيم التفصيلي وقبضات الأسلحة الأخرى غير موجودة في v1؛ اليدان مشتركتان مؤقتًا.",
+        "ملاحظات المصدر والتوثيق في outputs/ashfall-blender-v1-integration-feedback.md."
+      ],
+      "publishedIn": {
+        "label": "06",
+        "commit": "2e1bc3c8391235d1ee5a67be2daf2c4ab78c7912",
+        "deploymentId": "appgdep_6ad29dc720f881919d4107cf2652ddd6",
+        "url": "https://sandstone-house-walk-xxtro.faresalhomaily966.chatgpt.site"
+      }
+    },
+    {
+      "id": "visual-remaster-v2",
+      "status": "validating",
+      "summary": "أسلحة ونسخ مطورة ورسوم شراء وعمارة علوية؛ جارٍ فحص الجاهزية",
+      "readyConfirmedByArtist": true,
+      "validation": [],
+      "knownIntegrationWork": []
+    }
+  ]
+}
