@@ -18,3 +18,6 @@ $RECYCLE.BIN/
 
 # Temporary logs
 *.log
+
+# Deployment build archives (source remains tracked)
+outputs/*-deploy.tar.gz

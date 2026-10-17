@@ -171,9 +171,9 @@ function advance(g,steps,input={}){for(let i=0;i<steps;i++)g.step(input);}
  const initialBoxPos=[boxStation.x,boxStation.z];
  g.points=10000;
  g.player.x=boxStation.x;g.player.z=boxStation.z;
- assert(g.interact('mystery'));delete g.inventory.rifle;delete g.inventory.shotgun;
- assert(g.interact('mystery'));delete g.inventory.rifle;delete g.inventory.shotgun;
- assert(g.interact('mystery'));delete g.inventory.rifle;delete g.inventory.shotgun;
+ assert(g.interact('mystery'));
+ assert(g.interact('mystery'));
+ assert(g.interact('mystery'));
  const ptsBeforeTeddy=g.points;
  assert(g.interact('mystery'),'4th spin triggers Teddy relocation');
  assert.equal(g.points,ptsBeforeTeddy,'Teddy spin refunds box cost');
@@ -206,4 +206,10 @@ function advance(g,steps,input={}){for(let i=0;i<steps;i++)g.step(input);}
  assert(Object.keys(hudData.perk_icons_svg).length===4,'All 4 SVG perk icons authored');
 }
 
+// Validate every nested v3 mesh, including Pack-a-Punch glass, not only perk machines.
+const allMaterials={...batchMaterials(machines),...batchMaterials(powerupsData),...batchMaterials(json('remaster-materials-v3-supplement.json'))};
+for(const data of [machines,powerupsData]){
+ const inspect=value=>{if(!value||typeof value!=='object')return;if(value.positions){assert(value.positions.length===value.normals.length);assert(value.positions.every(Number.isFinite));assert(allMaterials['v2:'+value.material],'Missing runtime material: '+value.material);}for(const v of Object.values(value))inspect(v);};inspect(data);
+}
+for(const name of ['gameplay-machines-v3.json','powerups-and-tacticals-v3.json','ui-icons-and-hud-v3.json','upper-floor-architecture-v2.json'])assert.deepEqual(json('remaster/'+name),JSON.parse(fs.readFileSync(new URL('../blender-delivery/'+name,import.meta.url))),'Runtime copy matches artist delivery: '+name);
 console.log('PASS CoD Zombies Upgrade (Batch 3): 4 Perks + Solo Quick Revive Downed State; 5 Power-Ups + Demonic Announcer; Crawlers & Headshot Decapitation; Frag Grenades & Cymbal Monkey Decoy; Window Barricades; Electric Gate Trap; Mystery Box Teddy Relocation; Special Rounds; 25 Blender v3 3D assets.');

@@ -1,0 +1,28 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {Survival} from './dist/simulation.mjs';
+import {integrateArchitecture} from './dist/architecture.mjs';
+import {blocked,clearLine} from './dist/physics.mjs';
+const read=name=>JSON.parse(fs.readFileSync(new URL('./dist/assets/'+name,import.meta.url)));
+const architecture=read('remaster/upper-floor-architecture-v2.json');
+const asset=read('district.json');integrateArchitecture(asset,architecture);
+assert(!asset.objects.some(r=>r.name==='First floor deck'||r.name==='Bed base'),'Replaced roof/furniture cannot overlap the delivered stairwell');
+const g=new Survival(asset);g.start();g.intermission=999;
+Object.assign(g.player,{x:-5.2,z:8.1,y:.2});
+for(let i=0;i<90;i++)g.step({z:-1});
+assert.equal(g.player.y,3.8,'Walking climbs all fourteen exported treads without jumping');
+assert(g.player.z<3.3,'Player reaches the north landing');
+for(let i=0;i<50;i++)g.step({x:1});
+assert(g.player.x>-3&&g.player.y===3.8,'Landing connects to the main deck');
+for(let i=0;i<50;i++)g.step({x:-1});
+for(let i=0;i<90;i++)g.step({z:1});
+assert(g.player.y<.7&&g.player.z>7.6,'Descending returns to the ground');
+assert(!blocked(2,2,asset.colliders,.28,.584),'Upper slab/parapets leave the ground floor traversable');
+assert(clearLine(1.5,2,2.3,2,asset.colliders,.05,1.68),'Upper slab cannot block a ground-floor line');
+Object.assign(g.player,{x:-3,z:2,y:3.8,vx:0,vz:0});
+const e={id:1,x:-9,z:12,y:.2,health:100,maxHealth:100,speed:1.5,action:'chase',attack:0,dead:false,phase:0,facing:0};
+g.enemies=[e];for(let i=0;i<1100;i++)g.step();
+assert(e.y>3.5&&g.player.health<100,'Zombie routes around ground obstacles, climbs stairs, and attacks upstairs');
+console.log('PASS architecture: real tread ascent/descent, landing/deck connection, old roof removal, vertical collision, and enemy stair pursuit/attack.');
+
+const lootGame=new Survival(asset);lootGame.start();lootGame.intermission=999;Object.assign(lootGame.player,{x:-3,z:2,y:.584});const drop=lootGame.spawnPowerup(-3,2,'double_points',3.8);lootGame.step();assert(lootGame.powerups.includes(drop)&&lootGame.doublePointsTimer===0,'Loot cannot be collected through the upper floor');lootGame.player.y=3.8;lootGame.step();assert(lootGame.doublePointsTimer>0&&lootGame.powerups.length===0,'Upstairs loot is collected on its own floor');

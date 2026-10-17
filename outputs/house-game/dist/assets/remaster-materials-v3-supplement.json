@@ -1,0 +1,12 @@
+{
+  "source": "outputs/blender-delivery/generate_batch_3.py:66; exact Blender material values omitted from exported palette",
+  "materials_palette": {
+    "Ashfall | Plasma Blue Glass": {
+      "base_color": [0.1, 0.6, 0.9, 1.0],
+      "metallic": 0.1,
+      "roughness": 0.1,
+      "emission": [0.1, 0.7, 1.0, 1.0],
+      "emission_strength": 3.5
+    }
+  }
+}

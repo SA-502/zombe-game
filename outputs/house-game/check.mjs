@@ -49,3 +49,4 @@ await import('./check-enemies.mjs');
 await import('./check-remaster.mjs');
 await import('./check-delivery.mjs');
 await import('./check-cod-features.mjs');
+await import('./check-architecture.mjs');

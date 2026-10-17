@@ -13,7 +13,7 @@ export function meleeTarget(player,enemies,aim,colliders){
   if(e.dead||Math.abs(e.y-player.y)>1.2)continue;
   const dx=e.x-player.x,dz=e.z-player.z,d=Math.hypot(dx,dz);
   if(d>nearest||(d>.001&&(dx*aim.x+dz*aim.z)/(d*length)<MELEE.cone))continue;
-  if(!clearLine(player.x,player.z,e.x,e.z,colliders,.05))continue;
+  if(!clearLine(player.x,player.z,e.x,e.z,colliders,.05,player.y+1.1))continue;
   nearest=d;target=e;
  }
  return target;
@@ -23,7 +23,7 @@ export function canEnemyHit(enemy,player,colliders){
  const dx=player.x-enemy.x,dz=player.z-enemy.z,d=Math.hypot(dx,dz);
  return d<=ENEMY_ATTACK.hitRange&&Math.abs(player.y-enemy.y)<ENEMY_ATTACK.vertical&&
   (d<.001||(Math.sin(enemy.facing)*dx+Math.cos(enemy.facing)*dz)/d>.35)&&
-  clearLine(enemy.x,enemy.z,player.x,player.z,colliders,.05);
+  clearLine(enemy.x,enemy.z,player.x,player.z,colliders,.05,enemy.y+1.1);
 }
 
 // Reserve impact times, rather than granting the player blanket invulnerability.
@@ -38,7 +38,7 @@ export function attackSlot(time,enemies){
 export function spawnHidden(x,z,player,view,colliders){
  const dx=x-player.x,dz=z-player.z,d=Math.hypot(dx,dz);
  if(d<15)return false;
- if(!clearLine(player.x,player.z,x,z,colliders,.05))return true;
+ if(!clearLine(player.x,player.z,x,z,colliders,.05,player.y+1.1))return true;
  // Include a margin beyond the rendered field of view. No visible pop-in fallback.
  const length=Math.hypot(view.x,view.z);
  const halfAngle=Math.min(Math.PI*.95,(view.fov??100)*Math.PI/360+Math.PI/18);

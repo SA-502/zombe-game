@@ -32,7 +32,7 @@ g=fresh();g.gun.ammo=0;g.reloadTimer=.05;g.stepFrame(.01,{firePressed:true});g.s
 g=fresh();g.stepFrame(.15,{firePressed:true});advance(g,.2);assert.equal(shots(g).length,1,'One frame edge is not repeated by internal substeps');
 
 g=fresh();g.player.x=23;g.player.z=12;g.points=10000;g.inventory.rifle={ammo:45,reserve:315,level:1};g.weapon='rifle';const protectedRifle={...g.gun};assert(g.interact('mystery'));assert.equal(g.weapon,'shotgun');assert.deepEqual(g.inventory.rifle,protectedRifle,'Box never replaces an upgraded owned gun');assert.equal(g.points,9300);
-const beforeInventory=structuredClone(g.inventory),beforePoints=g.points;assert(!g.interact('mystery'),'Box refuses when both options are already owned');assert.equal(g.points,beforePoints);assert.deepEqual(g.inventory,beforeInventory);
+const beforeInventory=structuredClone(g.inventory),beforePoints=g.points;assert(g.interact('mystery'),'Repeat box spin stays available for relocation');assert.equal(g.points,beforePoints-700);assert.deepEqual(g.inventory,beforeInventory);
 for(const roll of [0,.49,.5,.999999]){const q=new Survival(asset,()=>roll);q.start();q.player.x=23;q.player.z=12;q.points=1000;assert(q.interact('mystery'));assert(q.inventory.rifle||q.inventory.shotgun);assert.equal(q.points,300);}
 
 g=fresh();g.player.x=-5;g.player.z=16;g.points=1000;assert(!g.interact('ammo'));assert.equal(g.points,1000,'Full general ammo station does not charge');

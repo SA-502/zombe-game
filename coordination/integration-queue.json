@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-16T21:58:55.441Z",
+  "updatedAt": "2026-10-17T07:35:41.640Z",
   "owner": "code",
   "batches": [
     {
@@ -131,26 +131,43 @@
     },
     {
       "id": "visual-remaster-v2",
-      "status": "integrated",
+      "status": "published",
       "summary": "أسلحة نمر 47 ورعد 12 والنسخ المطورة ورسوم الشراء وعمارة الطابق العلوي والدرج مدمجة ومفحوصة بالكامل محلياً (check.mjs PASS)",
       "readyConfirmedByArtist": true,
       "validation": [
-        "check.mjs: pass (100%)",
-        "check-delivery.mjs: pass (100%)",
-        "Architecture v2.1 stairwell void open, no head conflicts, stairs flight slope walkable",
-        "Pistol, rifle, shotgun, Pack-a-Punch models and materials loaded into WebGL engine",
-        "Wallbuy chalk outlines and dynamic price plates verified"
+        "node check.mjs: PASS, including full nested v3 material validation and check-architecture.mjs",
+        "Browser load08; ADS rifle30→29; frag and monkey inputs",
+        "Architecture: real stair ascent/descent and enemy pursuit upstairs; Sites publication succeeded"
       ],
-      "knownIntegrationWork": []
+      "knownIntegrationWork": [
+        "حدود الجودة والحركات التفصيلية في outputs/ashfall-update-08-verification.md"
+      ],
+      "publishedIn": {
+        "label": "08",
+        "commit": "09e0b284084c8874475790b9b551db9491732af1",
+        "deploymentId": "appgdep_6ad32516db54819199800f606ceda31f",
+        "url": "https://sandstone-house-walk-xxtro.faresalhomaily966.chatgpt.site"
+      }
     },
     {
       "id": "visual-remaster-v3",
-      "status": "ready_for_integration",
+      "status": "published",
       "summary": "أجهزة البيركات الـ4، الصندوق العشوائي وشعاعه، محطة التطوير، مصيدة الكهرباء، التقويات العائمة، والواجهة (جاهزة في dist/assets/remaster/)",
       "readyConfirmedByArtist": true,
-      "validation": [],
-      "knownIntegrationWork": []
+      "validation": [
+        "node check.mjs: PASS, including full nested v3 material validation and check-architecture.mjs",
+        "Browser load08; ADS rifle30→29; frag and monkey inputs",
+        "Architecture: real stair ascent/descent and enemy pursuit upstairs; Sites publication succeeded"
+      ],
+      "knownIntegrationWork": [
+        "حدود الجودة والحركات التفصيلية في outputs/ashfall-update-08-verification.md"
+      ],
+      "publishedIn": {
+        "label": "08",
+        "commit": "09e0b284084c8874475790b9b551db9491732af1",
+        "deploymentId": "appgdep_6ad32516db54819199800f606ceda31f",
+        "url": "https://sandstone-house-walk-xxtro.faresalhomaily966.chatgpt.site"
+      }
     }
   ]
 }
-

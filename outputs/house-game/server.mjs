@@ -3,7 +3,7 @@ import {readFile,stat} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 const project=fileURLToPath(new URL('./',import.meta.url)),root=path.join(project,'dist'),delivery=path.resolve(project,'../blender-delivery');
-const names=['manifest.json','zombie-templates-v1.json','zombie-actions-v1.json','player-hands-pistol-v1.json','weapons-pack-v2.json','wallbuys-and-props-v2.json','upper-floor-architecture-v2.json'];
+const names=['manifest.json','zombie-templates-v1.json','zombie-actions-v1.json','player-hands-pistol-v1.json','weapons-pack-v2.json','wallbuys-and-props-v2.json','upper-floor-architecture-v2.json','gameplay-machines-v3.json','powerups-and-tacticals-v3.json','ui-icons-and-hud-v3.json'];
 const mime={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json','.png':'image/png'};
 export async function deliveryStatus(directory=delivery){const files=[],errors=[];for(const name of names){try{const p=path.join(directory,name),[data,info]=await Promise.all([readFile(p,'utf8'),stat(p)]);JSON.parse(data);files.push({name,bytes:info.size,mtime:info.mtimeMs});}catch{errors.push(name+' غير جاهز أو غير مكتمل');}}const latest=Math.max(0,...files.map(f=>f.mtime));return {ready:errors.length===0&&Date.now()-latest>=2000,stamp:files.map(f=>f.name+':'+f.bytes+':'+f.mtime).join('|'),files:files.map(({name,bytes})=>({name,bytes})),errors};}
 export function createPreviewServer(){return http.createServer(async(req,res)=>{try{
