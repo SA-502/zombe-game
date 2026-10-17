@@ -19,9 +19,9 @@ export function zombieLibrary(models,actions,material){
 }
 
 export function createZombieModel(library,enemy){
- const root=new THREE.Group(),bones={},id=variantFor(enemy.id),scale=VARIANT_SCALES[id];
+ const root=new THREE.Group(),bones={},id=enemy.variant||variantFor(enemy.id),scale=VARIANT_SCALES[id];
  for(const j of library.rig){const b=new THREE.Group(),parent=library.rig.find(p=>p.id===j.parent);b.name=j.id;b.position.fromArray(j.pivot.map((v,i)=>(v-(parent?.pivot[i]??0))*scale[i]));bones[j.id]=b;(j.parent?bones[j.parent]:root).add(b);}
- for(const row of library.variants[id]){const m=new THREE.Mesh(row.geometry,row.material);m.name='Blender '+id+' '+row.bone;m.userData={enemy:enemy.id,head:row.bone==='head'};m.castShadow=row.bone==='torso'||row.bone==='head';bones[row.bone].add(m);}
+ for(const row of library.variants[id]){const m=new THREE.Mesh(row.geometry,row.material);m.name='Blender '+id+' '+row.bone;m.userData={enemy:enemy.id,head:row.bone==='head',limb:row.bone.startsWith('leg_')||row.bone.startsWith('shin_')};m.castShadow=row.bone==='torso'||row.bone==='head';bones[row.bone].add(m);}
  root.userData={bones,variant:id,scale,library,travel:0,lastX:enemy.x,lastZ:enemy.z};return root;
 }
 
@@ -34,5 +34,19 @@ export function animateZombieModel(root,enemy,time){
  if(d.blendFrom&&time-d.blendAt<.10)pose=blendPose(d.blendFrom,pose,Math.max(0,(time-d.blendAt)/.1));
  d.pose=pose;d.clip=state.name;d.clipTime=state.time;
  for(const [id,b]of Object.entries(d.bones)){b.rotation.set(...pose[id].rot,'XYZ');b.position.fromArray(pose[id].pos);}
- root.position.set(enemy.x,enemy.y,enemy.z);root.rotation.set(0,enemy.facing+Math.PI,0);root.scale.setScalar(1);
+ if(d.bones.head)d.bones.head.visible=!enemy.decapitated;
+ if(enemy.crawler){
+  if(d.bones.shin_left)d.bones.shin_left.visible=false;
+  if(d.bones.shin_right)d.bones.shin_right.visible=false;
+  if(!enemy.dead&&d.bones.torso){
+   d.bones.torso.rotation.x+=1.15;
+   const crawlCycle=d.travel*4.5+time*3;
+   if(d.bones.arm_left)d.bones.arm_left.rotation.x=-1.1+Math.sin(crawlCycle)*.55;
+   if(d.bones.arm_right)d.bones.arm_right.rotation.x=-1.1-Math.sin(crawlCycle)*.55;
+  }
+  root.position.set(enemy.x,enemy.y-.52,enemy.z);
+ }else{
+  root.position.set(enemy.x,enemy.y,enemy.z);
+ }
+ root.rotation.set(0,enemy.facing+Math.PI,0);root.scale.setScalar(1);
 }
