@@ -1,6 +1,6 @@
 {
   "owner": "code",
-  "updatedAt": "2026-10-17T07:35:41.640Z",
+  "updatedAt": "2026-10-17T07:36:48.682Z",
   "updatedBy": "وكيل البرمجة والدمج",
   "state": "نُشر تحديث08 بنجاح؛ دمج الدفعات الثلاث وفحصها",
   "currentTask": "تسليم08 ومزامنة GitHub؛ مصادر Blender محفوظة دون تعديل",
@@ -39,6 +39,10 @@
   "github": {
     "url": "https://github.com/SA-502/zombe-game",
     "branch": "main",
-    "scope": "المشروع كاملًا: الأكواد والتنسيق ومصادر Blender وصادراتها"
+    "scope": "المشروع كاملًا: الأكواد والتنسيق ومصادر Blender وصادراتها",
+    "testedCommit": "0cca471ea590b6845c4c490678514655824ff88e",
+    "checkStatus": "success",
+    "checkUrl": "https://github.com/SA-502/zombe-game/actions/runs/39014227263",
+    "gameSourceMatchesPublishedTree": true
   }
 }
